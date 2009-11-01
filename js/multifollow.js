@@ -24,7 +24,19 @@ TwitterManager.prototype = {
 	twitter_login_state: 'unsigned',
 	name: null,
 	pass: null,
-
+  
+  follow: function() {
+		  var a = this;	
+  		this.ajax_call( 'PUT', '/', {
+  		      name: this.name,
+  		      password: this.password,
+  		    }, function( response ) {
+  		       console.log = response;
+  		    }
+  		);
+		
+  },
+  
   search: function() {
     var target_account = $( '#target_account' ).val();
     if ( target_account == '' )
@@ -46,7 +58,7 @@ TwitterManager.prototype = {
 	  $( '#message_box span' ).text( 'Twitter account source finded.' );
 	  $( "#users_list" ).empty();
     jQuery.each( users_list, function( i, user ) {
-      $( "#users_list" ).append( '<input name="friends" type="checkbox" value="' + user.name + '"/>' + user.name + '<br/>' );
+      $( "#users_list" ).append( '<input name="friends" type="checkbox" value="' + user.name  + '"/>' + user.name + '<br/>' );
     });
 	},
 
@@ -102,4 +114,5 @@ $(document).ready(function () {
   var twitterManager = new TwitterManager();
   $( '#login_form input.login' ).bind( 'click', function(){ twitterManager.login(); } );
   $( '#target_twitter_account input.search' ).bind( 'click', function(){ twitterManager.search(); } );
+  $( '#users_list_box input.follow' ).bind( 'click', function(){ twitterManager.follow(); } );
 });//document ready
