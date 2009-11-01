@@ -7,6 +7,15 @@ get '/' do
   erb :multifollow
 end
 
+get '/:name'
+  user = Twitter.user( params[ :name ] )
+  if user.has_key?( 'name' )
+    list_followed_twitters( user )
+  else 
+    erb "false"
+  end
+end
+
 post '/login' do
   httpauth = Twitter::HTTPAuth.new( params[ :name ], params[ :password ] )
   client = Twitter::Base.new(httpauth)
@@ -16,6 +25,10 @@ post '/login' do
     rescue StandardError
       erb "false"
   end
+end
+
+def list_followed_twitters( user )
+  
 end
 
 get '/js/multifollow.js' do
