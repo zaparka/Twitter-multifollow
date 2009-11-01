@@ -50,8 +50,8 @@ TwitterManager.prototype = {
     });
 	},
 
-	login_false: function() {
-	  $( '#message_box span' ).text( 'Login failed, please try again.' );
+	target_false: function() {
+	  $( '#message_box span' ).text( 'Twitter account source finder failed.' );
 	},
   
   login: function() {
