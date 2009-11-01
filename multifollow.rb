@@ -17,14 +17,29 @@ get '/:name' do
 end
 
 post '/login' do
-  httpauth = Twitter::HTTPAuth.new( params[ :name ], params[ :password ] )
-  client = Twitter::Base.new(httpauth)
+  client = login( params[ :name ], params[ :password ] )
   begin
     @client_data = client.verify_credentials
     erb :client_data
     rescue StandardError
       erb "false"
   end
+end
+
+put '/' do
+  client = login( params[ :name ], params[ :password ] )
+  puts client.friendship_exists?( 'multifollow','zaparka')
+  if false == ( client.friendship_exists?('multifollow','zaparka') )
+   puts client.friendship_create( 49387111, true )
+  else
+   puts client.friendship_destroy( 49387111 )
+  end
+end
+
+def login( name, login )
+  httpauth = Twitter::HTTPAuth.new( name, login )
+  client = Twitter::Base.new(httpauth)
+  client
 end
 
 def list_followed_twitters( user )
