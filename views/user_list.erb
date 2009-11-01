@@ -1,3 +1,0 @@
-var users_list = [
- <%= @users_list.map { | user | "new User( #{ user.id }, '#{ user.name }', #{ user.screen_name } )" }.join( ', ' ) %>
-];
