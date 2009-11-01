@@ -28,12 +28,12 @@ end
 
 put '/' do
   client = login( params[ :name ], params[ :password ] )
-  puts client.friendship_exists?( 'multifollow','zaparka')
-  if false == ( client.friendship_exists?('multifollow','zaparka') )
-   puts client.friendship_create( 49387111, true )
-  else
-   puts client.friendship_destroy( 49387111 )
+  params[ :requested_follow_ids ].split( ',' ).each do | request_id |
+    if false == ( client.friendship_exists?( params[ :name ], request_id ) )
+      client.friendship_create( request_id, true )
+    end
   end
+  erb "Follow requests sucessfully completed."
 end
 
 def login( name, login )
