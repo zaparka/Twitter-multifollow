@@ -26,15 +26,22 @@ TwitterManager.prototype = {
 	pass: null,
   
   follow: function() {
-		  var a = this;	
+    if( this.twitter_login_state == 'signed' ){
+      var requested_follow_ids = new Array();
+      jQuery.each( $( '#users_list :checked' ), function( i, user ) {
+        requested_follow_ids[ i ] = user.value;
+      });
+      var a = this;	
   		this.ajax_call( 'PUT', '/', {
   		      name: this.name,
   		      password: this.password,
+  		      requested_follow_ids: requested_follow_ids.join(',') 
   		    }, function( response ) {
-  		       console.log = response;
+  		       $( "#users_list" ).empty();
+  		       $( '#message_box span' ).text( response );
   		    }
   		);
-		
+    }
   },
   
   search: function() {
@@ -58,7 +65,7 @@ TwitterManager.prototype = {
 	  $( '#message_box span' ).text( 'Twitter account source finded.' );
 	  $( "#users_list" ).empty();
     jQuery.each( users_list, function( i, user ) {
-      $( "#users_list" ).append( '<input name="friends" type="checkbox" value="' + user.name  + '"/>' + user.name + '<br/>' );
+      $( "#users_list" ).append( '<input name="friends" type="checkbox" value="' + user.id  + '"/>' + user.name + '<br/>' );
     });
 	},
 
@@ -91,7 +98,7 @@ TwitterManager.prototype = {
 	  $( '#message_box span' ).text( 'Login sucess.' );
 		$( '#login_form *' ).hide();
 		$( '#login_form' ).html( '<span> Welcome '+ client_data.name + '</span>' );
-		this.state = 'signed';
+		this.twitter_login_state = 'signed';
 	},
 
 	login_false: function() {
