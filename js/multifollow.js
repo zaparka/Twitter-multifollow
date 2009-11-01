@@ -44,9 +44,9 @@ TwitterManager.prototype = {
   
   update_users_list: function( users_list ) {
 	  $( '#message_box span' ).text( 'Twitter account source finded.' );
-	  $( "#users_list" ).empty();     
+	  $( "#users_list" ).empty();
     jQuery.each( users_list, function( i, user ) {
-      $( "#users_list" ).append( '<option>' + user.name + '</option>' );
+      $( "#users_list" ).append( '<input name="friends" type="checkbox" value="' + user.name + '"/>' + user.name + '<br/>' );
     });
 	},
 
