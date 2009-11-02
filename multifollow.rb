@@ -21,15 +21,15 @@ post '/login' do
   begin
     @client_data = client.verify_credentials
     erb :client_data
-    rescue StandardError
-      erb "false"
+  rescue StandardError
+    erb "false"
   end
 end
 
 put '/' do
   client = login( params[ :name ], params[ :password ] )
   params[ :requested_follow_ids ].split( ',' ).each do | request_id |
-    if false == ( client.friendship_exists?( params[ :name ], request_id ) )
+    if  !( client.friendship_exists?( params[ :name ], request_id ) )
       client.friendship_create( request_id, true )
     end
   end
@@ -38,8 +38,7 @@ end
 
 def login( name, login )
   httpauth = Twitter::HTTPAuth.new( name, login )
-  client = Twitter::Base.new(httpauth)
-  client
+  Twitter::Base.new( httpauth )
 end
 
 def list_followed_twitters( user )
