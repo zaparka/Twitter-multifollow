@@ -1,7 +1,9 @@
 Twitter multifollow
 Goals: 
- Loggin to twitter account
+ Loggin to twitter account -done
  Select twitter account and get twitter accounts which he follow
+  - when is list long than method for listing users retturn false
  Choose filter option
- Select accounts which i want to follow and click multifollow
+ Select accounts which i want to follow and click multifollow - done
+ 
  
