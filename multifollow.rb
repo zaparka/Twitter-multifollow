@@ -59,3 +59,13 @@ get '/js/jquery-1.3.2.min.js' do
   headers 'Content-Type' => 'text/javascript; charset=utf-8'
   File.read( File.join( File.dirname( __FILE__ ), 'js', 'jquery-1.3.2.min.js' ) )
 end
+
+get '/css/multifollow.css' do
+  headers 'Content-Type' => 'text/css; charset=utf-8'
+  File.read(File.join(File.dirname(__FILE__), 'css', 'multifollow.css' ) )
+end
+
+get '/img/loader.gif' do
+  headers 'Content-Type' => 'image/jpeg;'
+  File.read(File.join(File.dirname(__FILE__), 'img', 'loader.gif' ) )
+end
