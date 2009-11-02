@@ -63,9 +63,10 @@ TwitterManager.prototype = {
   
   update_users_list: function( users_list ) {
 	  $( '#message_box span' ).text( 'Twitter account source finded.' );
-	  $( "#users_list" ).empty();
+	  $( "#users_list" ).empty().show();
     jQuery.each( users_list, function( i, user ) {
-      $( "#users_list" ).append( '<input name="friends" type="checkbox" value="' + user.id  + '"/>' + user.name + '<br/>' );
+      $( "#users_list" ).append( '<input name="friends" type="checkbox" value="' + user.id 
+       + '"/><span>' + user.name + '</span><br/>' );
     });
 	},
 
@@ -111,7 +112,10 @@ TwitterManager.prototype = {
 	     url: url,
 	     dataType: "script",
 	     data: data,
-	     success: on_success_method
+	     success: on_success_method,
+	     complete: function(){
+	       $( 'img.loading' ).hide();
+	       }
 	    });
 	  }
 
@@ -119,7 +123,10 @@ TwitterManager.prototype = {
 
 $(document).ready(function () {
   var twitterManager = new TwitterManager();
-  $( '#login_form input.login' ).bind( 'click', function(){ twitterManager.login(); } );
-  $( '#target_twitter_account input.search' ).bind( 'click', function(){ twitterManager.search(); } );
+  $( '#login_form input.login' ).bind( 'click', function(){ twitterManager.login(); $( '#login_form img.loading' ).show(); } );
+  $( '#target_twitter_account input.search' ).bind( 'click', function(){ 
+     twitterManager.search(); 
+     $( '#login_form img.loading' ).show(); 
+    } );
   $( '#users_list_box input.follow' ).bind( 'click', function(){ twitterManager.follow(); } );
 });//document ready
