@@ -6,7 +6,8 @@ Goals:
 Issues:
 - when is list long than method for listing users return false
 Todo:
- Write tests
+ Write tests -done 
+ Write tests for UI
  Filter for listed accounts
  Add better error and message handling
  Add unfollow and block methods for logged account
