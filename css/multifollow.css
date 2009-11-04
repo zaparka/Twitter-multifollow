@@ -26,6 +26,7 @@ p {
 
 #main_box {
   width: 800px;
+  height: 850px;
   margin: 0 auto;
   background-color: #fff;
   border: 4px solid #DDDDDD;
@@ -38,6 +39,7 @@ p {
 }
 
 #message_box, #login_form, #target_twitter_account, #users_list_box {
+  display: none;
   position: relative;
   width: 400px;
   padding: 10px;
@@ -49,6 +51,10 @@ p {
     -khtml-box-shadow: 2px 2px 2px #888;
     -moz-box-shadow: 2px 2px 2px #888;
     -webkit-box-shadow: 2px 2px 2px #888;
+}
+
+#login_form {
+  display: block;
 }
 
 #login_form label {
@@ -95,4 +101,15 @@ img.loading {
   display: none;
   margin-left: 10px;
   margin-bottom: -3px;
+}
+span {
+  font-size: 0.8em;
+}
+
+.green {
+  color: #228D00;
+}
+
+.red {
+  color: #A60000;
 }
