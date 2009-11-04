@@ -38,7 +38,7 @@ TwitterManager.prototype = {
           requested_follow_ids: requested_follow_ids.join(',')
         }, function( response ) {
            $( '#users_list' ).empty();
-           $( '#message_box span' ).text( response );
+           $( '#users_list_box span' ).text( response );
         });
     }
   },
@@ -127,10 +127,16 @@ TwitterManager.prototype = {
 
 $(document).ready(function () {
   var twitterManager = new TwitterManager();
-  $( '#login_form input.login' ).bind( 'click', function() { twitterManager.login(); $( '#login_form img.loading' ).show(); } );
-  $( '#target_twitter_account input.search' ).bind( 'click', function(){ 
+  $( '#login_form input.login' ).bind( 'click', function() {
+      twitterManager.login();
+      $( '#login_form img.loading' ).show();
+   });
+  $( '#target_twitter_account input.search' ).bind( 'click', function(){
      twitterManager.search();
      $( '#target_twitter_account img.loading' ).show();
-    } );
-  $( '#users_list_box input.follow' ).bind( 'click', function() { twitterManager.follow(); } );
+    });
+  $( '#users_list_box input.follow' ).bind( 'click', function() {
+     twitterManager.follow();
+     $( '#users_list_box img.loading' ).show();
+  });
 });//document ready
