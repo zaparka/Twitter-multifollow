@@ -11,7 +11,7 @@ get '/:name' do
   user = Twitter.user( params[ :name ] )
   if user.has_key?( 'name' )
     list_followed_twitters( params[ :name ] )
-  else 
+  else
     erb "false"
   end
 end
