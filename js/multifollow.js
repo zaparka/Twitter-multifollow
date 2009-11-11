@@ -25,6 +25,7 @@ TwitterManager.prototype = {
   name: null,
   pass: null,
   loder_end: false,
+  users_list: null,
 
   follow: function() {
     if( this.twitter_login_state == 'signed' ) {
@@ -50,27 +51,43 @@ TwitterManager.prototype = {
       alert( 'You mast fill "twitter account source".' );
     else {
       var a = this;
-      this.ajax_call( 'GET', '/' + target_account, '', function( response ) {
+      this.ajax_call( 'GET', '/find/' + target_account, '', function( response ) {
            eval( response );
            if ( response == 'false') {
              $( 'img.loading' ).hide();
              a.target_false();
            }
-           else
-             a.update_users_list( users_list );
+           else {
+            a.get_follower_users_detail( users_list, a );
+           }
       });
     }
   },
 
-  update_users_list: function( users_list ) {
-    $( '#users_list_box' ).slideDown( 'slow' );
-    $( '#target_twitter_account span' ).removeClass( 'red' );
-    $( '#target_twitter_account span' ).text( 'Twitter account source finded.' );
-    $( '#users_list' ).empty().show();
-    jQuery.each( users_list, function( i, user ) {
-      $( '#users_list' ).append( '<input name="friends" type="checkbox" value="' + user.id
+  get_follower_users_detail: function( users_list, obj ) {
+     $( '#users_list_box' ).slideDown( 'slow' );
+     $( '#target_twitter_account span' ).removeClass( 'red' );
+     $( '#target_twitter_account span' ).text( 'Twitter account source finded.' );
+     $( '#users_list' ).empty().show();
+     a = obj;
+     jQuery.each( users_list, function( i, user ) {
+       a.ajax_call( 'GET', '/' + user, '', function( response ) {
+            eval( response );
+            if ( response == 'false') {
+              $( 'img.loading' ).hide();
+              a.target_false();
+            }
+            else {
+             a.update_users_list( user );
+            }
+       });
+     });
+    
+  },
+
+  update_users_list: function( user ) {
+    $( '#users_list' ).append( '<input name="friends" type="checkbox" value="' + user.id
        + '"/><span>' + user.name + '</span><br/>' );
-    });
   },
 
   target_false: function() {
