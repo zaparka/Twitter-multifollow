@@ -17,7 +17,7 @@ get '/find/:name' do
 end
 
 get '/:id' do
-  @user = Twitter.user( params[ :name ] )
+  @user = Twitter.user( params[ :id ] )
   if @user.has_key?( 'name' )
     erb :user
   else
@@ -52,9 +52,10 @@ end
 
 def list_followed_twitters( user )
   @users_list = Array.new
-  Twitter.friend_ids( user ).each do |friend|
+  Twitter.friend_ids( user ).each do | friend |
     @users_list << friend
   end
+  erb :users_list
 end
 
 get '/js/multifollow.js' do
