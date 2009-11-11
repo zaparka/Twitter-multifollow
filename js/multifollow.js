@@ -24,6 +24,7 @@ TwitterManager.prototype = {
   twitter_login_state: 'unsigned',
   name: null,
   pass: null,
+  loder_end: false,
 
   follow: function() {
     if( this.twitter_login_state == 'signed' ) {
