@@ -22,6 +22,10 @@ h2 {
 p {
   font-size: 0.9em;
   text-align: center;
+  width: 600px;
+  text-align: justify;
+  margin: 0 auto;
+  margin-bottom: 10px;
 }
 
 #main_box {
