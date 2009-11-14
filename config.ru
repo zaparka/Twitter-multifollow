@@ -1,0 +1,2 @@
+require 'multifollow'
+Sinatra::Application
