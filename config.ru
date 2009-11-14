@@ -1,2 +1,2 @@
 require 'multifollow'
-Sinatra::Application
+run Sinatra::Application
