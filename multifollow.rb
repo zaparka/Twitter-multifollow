@@ -1,6 +1,6 @@
 require 'rubygems'
 require 'sinatra'
-require "twitter"
+#require "twitter"
 require 'erb'
 
 get '/' do
