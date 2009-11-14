@@ -93,8 +93,6 @@ TwitterManager.prototype = {
   target_false: function() {
     $( '#target_twitter_account span' ).addClass( 'red' );
     $( '#target_twitter_account span' ).text( 'Twitter account source finder failed.' );
-    $( '#users_list' ).empty();
-    $( '#users_list_box' ).slideUp( 'slow' );
   },
 
   login: function() {
