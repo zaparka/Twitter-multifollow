@@ -69,7 +69,7 @@ TwitterManager.prototype = {
   get_follower_users_detail: function( users_list, obj ) {
      $( '#users_list_box' ).slideDown( 'slow' );
      $( '#target_twitter_account span' ).removeClass( 'red' );
-     $( '#target_twitter_account span' ).text( 'Twitter account source finded.' );
+     $( '#target_twitter_account span' ).text( 'Twitter account source found.' );
      $( '#users_list' ).empty().show();
      a = obj;
      jQuery.each( users_list, function( i, user ) {
@@ -120,7 +120,7 @@ TwitterManager.prototype = {
   updateLoginState: function( client_data ) {
     $( '#target_twitter_account' ).slideDown( 'slow' );
     $( '#login_form span' ).removeClass( 'red' );
-    $( '#login_form span' ).text( 'Login successfull: welcome '+ client_data.name );
+    $( '#login_form span' ).text( 'Login successfull' );
     this.twitter_login_state = 'signed';
   },
 
