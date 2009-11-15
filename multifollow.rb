@@ -11,6 +11,10 @@ get '/terms' do
   erb :terms
 end
 
+get '/about' do
+  erb :about
+end
+
 get '/find/:name' do
   user = Twitter.user( params[ :name ] )
   if user.has_key?( 'name' )
