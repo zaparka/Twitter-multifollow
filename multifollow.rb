@@ -26,7 +26,6 @@ end
 
 get '/:id' do
   @user = Twitter.user( params[ :id ] )
-  p @user
   if @user.has_key?( 'name' )
     erb :user
   else
