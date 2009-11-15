@@ -115,6 +115,11 @@ input.login, input.search, input.follow {
   font-size: 0.8em;
 }
 
+#footer {
+  text-align: center;
+}
+
+
 img.loading {
   display: none;
   margin-left: 10px;
