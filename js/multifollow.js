@@ -101,9 +101,11 @@ TwitterManager.prototype = {
     this.name = $( '#name' ).val();
     this.password = $( '#pass' ).val();
 
-    if ( this.name == '' || this.password == '' )
-      alert( 'You mast fill name and login.' );
-    else
+    if ( this.name == '' || this.password == '' ) {
+       alert( 'You mast fill name and login.' );
+       $( 'img.loading' ).hide();
+    }
+    else {
       var a = this;
       this.ajax_call( 'POST', '/login', {
             name: this.name,
@@ -115,6 +117,7 @@ TwitterManager.prototype = {
              else
                 a.updateLoginState( client_data );
       });
+    }
   },
 
   updateLoginState: function( client_data ) {
@@ -144,17 +147,22 @@ TwitterManager.prototype = {
 };
 
 $(document).ready(function () {
+  $( 'input' ).keypress( function( e ) {
+     if( e.which == 13 ) {
+       $( $( e.target ).parent() + ':submit' ).click();
+     }
+  });
   var twitterManager = new TwitterManager();
   $( '#login_form input.login' ).bind( 'click', function() {
-      twitterManager.login();
       $( '#login_form img.loading' ).show();
+      twitterManager.login();
    });
   $( '#target_twitter_account input.search' ).bind( 'click', function(){
-     twitterManager.search();
      $( '#target_twitter_account img.loading' ).show();
+     twitterManager.search();
     });
   $( '#users_list_box input.follow' ).bind( 'click', function() {
-     twitterManager.follow();
      $( '#users_list_box img.loading' ).show();
+     twitterManager.follow();
   });
 });//document ready
