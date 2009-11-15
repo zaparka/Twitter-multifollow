@@ -3,16 +3,18 @@
 // Date: 31.10.2009
 // used libraries: jquery.js
 
-function User( id, name, twitter_name ) {
+function User( id, name, twitter_name, description  ) {
   this.id = id;
   this.name = name;
   this.twitter_name = twitter_name;
+  this.description = description;
 }
 
 User.prototype = {
   id: 0,
   name: '',
-  twitter_name: ''
+  twitter_name: '',
+  description: ''
 }
 
 function TwitterManager() {
@@ -87,7 +89,7 @@ TwitterManager.prototype = {
 
   update_users_list: function( user ) {
     $( '#users_list' ).append( '<input name="friends" type="checkbox" value="' + user.id
-       + '"/><span>' + user.name + '</span><br/>' );
+       + '"/><span title="' + user.description + '">' + user.name + '</span><br/>' );
   },
 
   target_false: function() {
