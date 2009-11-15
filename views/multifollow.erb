@@ -7,20 +7,22 @@
       <div id="login_form">
         <h2>Login into your twitter account</h2>
         <label for="name">Twitter name</label>
-        <input type="text" name="name" id="name" value=""/><br/>
+        <input type="text" name="name" id="name" value=""/>
         <label for="pass">Twitter password</label>
-        <input type="password" name="pass" id="pass" value=""/><br/>
+        <input type="password" name="pass" id="pass" value=""/>
         <input type="submit" name="login" value="login" class="login"/>
         <img src="img/loader.gif" alt="loading..." class="loading" />
         <span class="green"></span>
+        <div class="cleaner"></div>
       </div>
       <div id="target_twitter_account">
         <h2>Write account name which from you select twitter accounts for following</h2>
-        <label for="target_account">Source Twitter account</label>
-        <input type="text" name="target_account" id="target_account" value=""/><br/>
+        <label for="target_account" class="label">Source Twitter account</label>
+        <input type="text" name="target_account" id="target_account" value=""/>
         <input type="submit" name="target_account" value="search" class="search"/>
         <img src="img/loader.gif" alt="loading..." class="loading" />
         <span class="green"></span>
+        <div class="cleaner"></div>
       </div>
       <div id="users_list_box">
         <h2>Write accounts name from which you will select Twitter accounts to follow.</h2>
@@ -30,5 +32,6 @@
         <input type="submit" value="follow" class="follow"/>
         <img src="img/loader.gif" alt="loading..." class="loading" />
         <span class="green"></span>
+        <div class="cleaner"></div>
       </div>
       <%= erb :footer %>
