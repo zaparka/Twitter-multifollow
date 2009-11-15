@@ -19,6 +19,10 @@ h2 {
   color: #2276BB;
 }
 
+ul {
+  list-style-type: none;
+}
+
 p {
   font-size: 0.9em;
   text-align: center;
@@ -30,9 +34,8 @@ p {
 
 #main_box {
   width: 800px;
-  height: 850px;
+  height: 910px;
   margin: 0 auto;
-  padding-bottom: 10px;
   background-color: #fff;
   border: 4px solid #DDDDDD;
   border-radius: 10px;
@@ -41,6 +44,14 @@ p {
   -khtml-border-radius: 10px;
   -moz-border-radius: 10px;
   -webkit-border-radius: 10px;
+}
+
+#menu {
+  text-align: center;
+}
+#menu ul li{
+  display: inline;
+  padding-right: 10px;
 }
 
 #message_box, #login_form, #target_twitter_account, #users_list_box {
@@ -89,6 +100,7 @@ input.login, input.search, input.follow {
   color: #fff;
   border: 1px solid #DDD;
   background-color: #2276BB;
+  text-shadow: 1px 1px 2px #000;
 }
 
 #users_list {
