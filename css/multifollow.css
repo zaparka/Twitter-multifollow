@@ -1,5 +1,3 @@
-
-
 body {
   font-color: #666;
   font-family: Arial, "MS Trebuchet", sans-serif;
@@ -30,6 +28,10 @@ p {
   text-align: justify;
   margin: 0 auto;
   margin-bottom: 10px;
+}
+
+a {
+  color: #2276BB;
 }
 
 #main_box {
