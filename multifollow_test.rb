@@ -4,7 +4,7 @@ require 'rack/test'
 
 set :environment, :test
 
-class PomodoroTest < Test::Unit::TestCase
+class MultifollowTest < Test::Unit::TestCase
   include Rack::Test::Methods
 
   def app
@@ -31,14 +31,14 @@ class PomodoroTest < Test::Unit::TestCase
 
     assert last_response.ok?
     assert_not_equal 'false', last_response.body
-    assert_match /var users_list = \[\n new User\( (\d+), '\w+', '\w+' \)/, last_response.body
+    assert_match /var user = new User\( \d+, '\w+\s\w+', '\w+', /, last_response.body
   end
 
   def test_of_follow_request
-    client = login( @name, @login )
-    assert_equal false, client.friendship_exists?( @name, @new_friend_id )
+    client = login( @name, @password )
+    assert_equal false, client.friendship_exists?( @name, @new_friend_name )
 
-    put '/', :name => @name, :password => @password, :requested_follow_ids => @new_friend_id
+    put '/', :name => @name, :password => @password, :requested_follow_ids => @new_friend_name
 
     assert last_response.ok?
     assert_equal 'Follow requests sucessfully completed.', last_response.body
