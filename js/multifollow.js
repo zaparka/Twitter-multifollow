@@ -117,14 +117,14 @@ TwitterManager.prototype = {
 
   updateLoginState: function( client_data ) {
     $( '#target_twitter_account' ).slideDown( 'slow' );
-    $( '#login_form input, #login_form label' ).fadeOut( 'slow' );
-    $( '#message_box span' ).text( 'Login sucess.' ).show();
-    $( '#login_form h2' ).text( 'Login successfull: Welcome '+ client_data.name );
+    $( '#login_form span' ).removeClass( 'red' );
+    $( '#login_form span' ).text( 'Login successfull: welcome '+ client_data.name );
     this.twitter_login_state = 'signed';
   },
 
   login_false: function() {
-    $( '#message_box span' ).text( 'Login failed, please try again.' );
+    $( '#login_form span' ).addClass( 'red' );
+    $( '#login_form span' ).text( 'Login failed, please try again.' );
   },
 
   ajax_call: function( type, url, data, on_success_method ) {
