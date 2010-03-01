@@ -74,12 +74,12 @@ a {
   padding: 10px;
   margin: 0 auto;
   margin-bottom: 10px;
-  border: 1px solid #DDDDDD;
-  box-shadow: 2px 2px 2px #888;
-    -o-box-shadow: 2px 2px 2px #888;
-    -khtml-box-shadow: 2px 2px 2px #888;
-    -moz-box-shadow: 2px 2px 2px #888;
-    -webkit-box-shadow: 2px 2px 2px #888;
+  border: 2px solid #aaa;
+  box-shadow: 4px 4px 4px #888;
+    -o-box-shadow: 4px 4px 4px #888;
+    -khtml-box-shadow: 4px 4px 4px #888;
+    -moz-box-shadow: 4px 4px 4px #888;
+    -webkit-box-shadow: 4px 4px 4px #888;
   border-radius: 10px;
     -o-border-radius: 10px;
     -icab-border-radius: 10px;
