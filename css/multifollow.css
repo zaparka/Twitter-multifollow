@@ -80,6 +80,12 @@ a {
     -khtml-box-shadow: 2px 2px 2px #888;
     -moz-box-shadow: 2px 2px 2px #888;
     -webkit-box-shadow: 2px 2px 2px #888;
+  border-radius: 10px;
+    -o-border-radius: 10px;
+    -icab-border-radius: 10px;
+    -khtml-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
 }
 
 #login_form {
@@ -96,7 +102,7 @@ a {
 input {
   border: 1px solid #888;
   padding: 4px 8px;
-  border-radius: 3px;
+  border-radius: 5px;
   -o-border-radius: 5px;
   -icab-border-radius: 5px;
   -khtml-border-radius: 5px;

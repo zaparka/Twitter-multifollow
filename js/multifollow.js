@@ -147,11 +147,11 @@ TwitterManager.prototype = {
 };
 
 $(document).ready(function () {
-  /*$( 'input' ).keypress( function( e ) {
+  $( 'input' ).keypress( function( e ) {
      if( e.which == 13 ) {
-       $( $( e.target ).parent() + ':submit' ).click();
+       $( "#" + $( e.target ).parent().attr('id') + ' :submit' ).click();
      }
-  });*/
+  });
   var twitterManager = new TwitterManager();
   $( '#login_form input.login' ).bind( 'click', function() {
       $( '#login_form img.loading' ).show();
